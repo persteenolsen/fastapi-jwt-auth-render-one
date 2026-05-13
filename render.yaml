@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: fastapi-jwt-app
+    env: python
+    plan: free
+    repo: https://github.com/persteenolsen/fastapi-jwt-auth-render-one  # Replace with your repo URL
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SECRET_KEY
+        fromSecret: SECRET_KEY
+      - key: ALGORITHM
+        fromSecret: ALGORITHM
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        fromSecret: ACCESS_TOKEN_EXPIRE_MINUTES
+      - key: APP_USERNAME
+        fromSecret: APP_USERNAME
+      - key: APP_PASSWORD
+        fromSecret: APP_PASSWORD
