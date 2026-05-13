@@ -19,8 +19,8 @@ from pydantic import BaseModel
 # INIT APP
 # -----------------------------
 app = FastAPI(
-    title="FastAPI + JWT + Hosted at Render",
-    description="13-05-2026 - Hosted at Render",
+    title="FastAPI + JWT Auth + Hosted at Render",
+    description="13-05-2026 - FastAPI using JWT Authentication Hosted at Render",
     version="1.0.0",
     contact={
         "name": "Per Olsen",
