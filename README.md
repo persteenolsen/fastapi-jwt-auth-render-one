@@ -1,16 +1,17 @@
-# 🚀 FastAPI + Neon PostgreSQL + JWT Authentication (Alembic Ready)
+# 🚀 FastAPI + Render + Neon PostgreSQL + JWT Authentication (Alembic Ready)
 
-Last updated:
+Last updated
 
 - 28-05-2026
 
-A production-ready backend built with FastAPI, PostgreSQL (Neon), JWT authentication, bcrypt password hashing, and Alembic migrations.
+A production-ready backend built with FastAPI, PostgreSQL (Neon), JWT authentication, bcrypt password hashing, and Alembic migrations hosted at Render
 
 ---
 
 ## 🧱 Tech Stack
 
 - FastAPI
+- Hosted at Render
 - PostgreSQL (Neon)
 - SQLAlchemy ORM
 - Alembic (migrations)
