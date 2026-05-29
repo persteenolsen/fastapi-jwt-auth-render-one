@@ -2,7 +2,7 @@
 
 Last updated
 
-- 28-05-2026
+- 29-05-2026
 
 A production-ready backend built with FastAPI, PostgreSQL (Neon), JWT authentication, bcrypt password hashing, and Alembic migrations hosted at Render
 

@@ -29,12 +29,15 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:
     raise ValueError("DATABASE_URL is missing")
 
+# 29-05-2026 - dev mode switch
+DEV_MODE = os.getenv("DEV_MODE", "false").lower() == "true"
+
 # -----------------------------
 # APP INIT
 # -----------------------------
 app = FastAPI(
     title="FastAPI + JWT Auth + Render + PostgreSQL at Neon",
-    description="28-05-2026 - FastAPI using JWT Auth hosted at Render using PostgreSQL at Neon as the database",
+    description="29-05-2026 - FastAPI using JWT Auth hosted at Render using PostgreSQL at Neon as the database",
     version="1.0.0",
     contact={
         "name": "Per Olsen",
@@ -102,8 +105,17 @@ class RegisterRequest(BaseModel):
 # -----------------------------
 # ROUTES
 # -----------------------------
+# Create user route - only for development, disabled in production
 @app.post("/register")
 def register(user: RegisterRequest, db: Session = Depends(get_db)):
+    
+    # 🚨 BLOCK IN PRODUCTION
+    if not DEV_MODE:
+        raise HTTPException(
+            status_code=403,
+            detail="User creation disabled in production"
+        )
+    
     existing = db.query(User).filter(User.email == user.email.lower()).first()
 
     if existing:
@@ -119,7 +131,7 @@ def register(user: RegisterRequest, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_user)
 
-    return {"message": "User created", "user_id": new_user.id}
+    return {"message": "User created (DEV MODE)", "user_id": new_user.id}
 
 
 @app.post("/token")
