@@ -29,7 +29,7 @@ DATABASE_URL = os.getenv("DATABASE_URL")
 if not DATABASE_URL:
     raise ValueError("DATABASE_URL is missing")
 
-# 29-05-2026 - dev mode switch
+# 29-05-2026 - dev mode switch to disable user creation in production
 DEV_MODE = os.getenv("DEV_MODE", "false").lower() == "true"
 
 # -----------------------------
