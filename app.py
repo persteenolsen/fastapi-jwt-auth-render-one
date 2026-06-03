@@ -37,7 +37,7 @@ DEV_MODE = os.getenv("DEV_MODE", "false").lower() == "true"
 # -----------------------------
 app = FastAPI(
     title="FastAPI + JWT Auth + Render + PostgreSQL at Neon",
-    description="29-05-2026 - FastAPI using JWT Auth hosted at Render using PostgreSQL at Neon as the database",
+    description="03-06-2026 - FastAPI using JWT Auth hosted at Render using PostgreSQL at Neon as the database",
     version="1.0.0",
     contact={
         "name": "Per Olsen",
